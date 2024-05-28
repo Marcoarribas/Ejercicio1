@@ -9,6 +9,7 @@ df<-read_excel("Datos//online_retail_II.xlsx")
 str(df)
 class(df$InvoiceDate)
 df$InvoiceDate<-as.Date(df$InvoiceDate)
+df$Invoice<-as.factor(df$Invoice)
 
 #6.Análisis básico de la información contenida en el fichero:
 summary(df)
