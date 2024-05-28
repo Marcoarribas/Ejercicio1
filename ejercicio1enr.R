@@ -3,9 +3,10 @@ library(readxl)
 library(dplyr)
 #como ya hemos generado un proyecto, ya estamos en el directorio en el que queremos trabajar
 getwd()
+setwd("C://Users//marco//OneDrive//Documentos//Ejercicio 1 Data Science reto 4//Ejercicio1//Datos")
 
 #5.Carga del fichero y revisión de formatos:
-df<-read_excel("Datos//online_retail_II.xlsx")
+df<-read_excel("online_retail_II.xlsx")
 str(df)
 class(df$InvoiceDate)
 df$InvoiceDate<-as.Date(df$InvoiceDate)
@@ -21,7 +22,7 @@ precio_medio_productos_por_pedido<-df %>%
   group_by(Invoice) %>% 
   summarise(precio_medio=mean(Price))
   
-#12. Calcula el numero de pedidos por pedido:
+#12. Calcula el numero de productos por pedido:
 numero_productos_por_pedido<-df %>% 
   group_by(Invoice) %>% 
   summarise(numero_productos=n())
